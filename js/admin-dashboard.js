@@ -531,4 +531,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
+});    /
+    / Mobile navigation for admin dashboard
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+const adminSidebar = document.getElementById('admin-sidebar');
+const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+if (mobileNavToggle && adminSidebar && sidebarOverlay) {
+    mobileNavToggle.addEventListener('click', () => {
+        adminSidebar.classList.toggle('active');
+        sidebarOverlay.classList.toggle('active');
+        document.body.style.overflow = adminSidebar.classList.contains('active') ? 'hidden' : '';
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+        adminSidebar.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // Close sidebar when clicking nav links on mobile
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 767) {
+                adminSidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 767) {
+            adminSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}

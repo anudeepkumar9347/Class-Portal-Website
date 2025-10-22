@@ -19,10 +19,9 @@
                     <h1>CSE – C Admin</h1>
                 </a>
                 <div class="admin-actions">
-                    <div class="admin-user">
-                        <div class="admin-user-avatar">A</div>
-                        <span>Administrator</span>
-                    </div>
+                    <button class="admin-mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
                     <button id="theme-toggle" aria-label="Toggle theme">
                         <i class="fa-solid fa-circle-half-stroke"></i>
                     </button>
@@ -34,8 +33,9 @@
             </nav>
         </div>
     </header>
+    <div class="admin-sidebar-overlay" id="sidebar-overlay"></div>
     <div class="admin-layout">
-        <aside class="admin-sidebar">
+        <aside class="admin-sidebar" id="admin-sidebar">
             <nav>
                 <ul class="sidebar-nav">
                     <li><a href="#dashboard" class="nav-link active" data-tab="dashboard">
